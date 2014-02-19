@@ -1,0 +1,42 @@
+<h1>Edit My Post</h1>
+
+<ul>
+<% @record.each do |post| %>
+  <li><%= post.title %></li>
+  <li><%= post.price %></li>
+  <li><%= post.description %></li>
+  <li><%= post.email %></li>
+  <li><%= post.title %></li>
+  <li><%= post.edit_key %></li>
+  <br>
+  <% end %>
+</ul>
+
+<form action="/update_post_to_db" method="post">
+  Title: <input type="text" name="post[title]"></input>
+  <br>
+  <br>
+  Description: <textarea rows= "10" cols= "100" name="post[description]"></textarea>
+  <br>
+  <br>
+  Price: <input type="text" name="post[price]"></input>
+  <br>
+  <br>
+  <select name="post[select]">
+    <option>Home</option>
+    <option>Garden</option>
+    <option>Car</option>
+    <option>Body</option>
+  </select>
+  <br>
+  <br>
+Email: <input type="text" name="post[email]"></input>
+<br>
+<br>
+<% @record.each do |post| %>
+  <input type="hidden" name="post[secret_key]" value = "<%=post.edit_key %>"</input><% end %>
+<input type="submit">
+</form>
+
+
+<h5><a href="/">Home</a><h5>

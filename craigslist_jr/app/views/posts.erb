@@ -1,0 +1,16 @@
+<h1>Posts for Category</h1>
+
+<ul>
+<% @posts.each do |post| %>
+  <li><%= post.title %></li>
+  <li><%= post.price %></li>
+  <li><%= post.description %></li>
+  <li><%= post.email %></li>
+  <li><%= post.title %></li>
+  <br>
+  <% end %>
+</ul>
+
+<h5><a href="/">Home</a><h5>
+
+
